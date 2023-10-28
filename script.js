@@ -33,41 +33,33 @@ function getComputerChoice() {
 function compareChoice(userChoice, computerChoice) {
   if (userChoice === computerChoice) {
     alert("It is a tie! Go Again.");
-  } else if (userChoice === "Rock" && computerChoice === "Scissors") {
-    alert("You win! Rock beats Scissors.");
-    userScore++;
-  } else if (userChoice === "Rock" && computerChoice === "Paper") {
-    alert("You lose! Paper beats Rock.");
-    computerScore++;
-  } else if (userChoice === "Scissors" && computerChoice === "Paper") {
-    alert("You win! Scissors beats Paper.");
-    userScore++;
-  } else if (userChoice === "Scissors" && computerChoice === "Rock") {
-    alert("You lose! Rock beats Scissors.");
-    computerScore++;
-  } else if (userChoice === "Paper" && computerChoice === "Rock") {
-    alert("You win! Paper beats Rock.");
-    userScore++;
-  } else if (userChoice === "Paper" && computerChoice === "Scissors") {
-    alert("You lose! Scissors beats Paper.");
-    computerScore++;
-  }
+  } else if (
+        (userChoice === "Rock" && computerChoice === "Scissors") ||
+        (userChoice === "Scissors" && computerChoice === "Paper") ||
+        (userChoice === "Paper" && computerChoice === "Rock")) {
+            alert(`You win! ${userChoice} beats ${computerChoice}.`);
+            userScore++;
+    } else {
+        alert(`You lose! ${computerChoice} beats ${userChoice}`);
+        computerScore++;
+    }
 }
 
 function playGame() {
-  for (let game = 0; game < arr.length; game++) {
-    let userChoice = getUserChoice();
-    let computerChoice = getComputerChoice();
-    compareChoice(userChoice, computerChoice);
-  } 
+    let roundCounter = 0;
   
+    while (userScore < 2 && computerScore < 2) {
+        roundCounter++;
+        let userChoice = getUserChoice();
+        let computerChoice = getComputerChoice();
+        compareChoice(userChoice, computerChoice);
+            alert(`Round #${roundCounter}, Current Score - User:${userScore}, Computer:${computerScore}`);
+            }
+            if (userScore === 2) {
+                alert("Yeahhhh You won RoShamBo!");
+            } else {
+                alert("You lost you loser! Computer Wins!");
+            }
+        }
   
-  if (userScore === 3) {
-    alert("You win User! Your score: ${userScore}, Computer Score: ${computerScore}");
-  } else if (computerScore === 3) {
-    alert("You win User! Your score: ${userScore}, Computer Score: ${computerScore}");
-  }
-} 
-
-
-
+  playGame();
