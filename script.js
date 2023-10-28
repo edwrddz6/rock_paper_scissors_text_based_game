@@ -13,3 +13,61 @@
 
 
 
+let computerScore = 0;
+
+let userScore = 0;
+
+let arr = ["Rock", "Paper", "Scissors"];
+
+function getUserChoice() {
+  let userChoice = prompt("Enter Rock, Paper, or Scissors.").toLowerCase();
+  return userChoice;
+}
+
+function getComputerChoice() {
+  let i = Math.floor(Math.random() * arr.length);
+  let computerChoice = arr[i];
+  return computerChoice;
+}
+
+function compareChoice(userChoice, computerChoice) {
+  if (userChoice === computerChoice) {
+    alert("It is a tie! Go Again.");
+  } else if (userChoice === "Rock" && computerChoice === "Scissors") {
+    alert("You win! Rock beats Scissors.");
+    userScore++;
+  } else if (userChoice === "Rock" && computerChoice === "Paper") {
+    alert("You lose! Paper beats Rock.");
+    computerScore++;
+  } else if (userChoice === "Scissors" && computerChoice === "Paper") {
+    alert("You win! Scissors beats Paper.");
+    userScore++;
+  } else if (userChoice === "Scissors" && computerChoice === "Rock") {
+    alert("You lose! Rock beats Scissors.");
+    computerScore++;
+  } else if (userChoice === "Paper" && computerChoice === "Rock") {
+    alert("You win! Paper beats Rock.");
+    userScore++;
+  } else if (userChoice === "Paper" && computerChoice === "Scissors") {
+    alert("You lose! Scissors beats Paper.");
+    computerScore++;
+  }
+}
+
+function playGame() {
+  for (let game = 0; game < arr.length; game++) {
+    let userChoice = getUserChoice();
+    let computerChoice = getComputerChoice();
+    compareChoice(userChoice, computerChoice);
+  } 
+  
+  
+  if (userScore === 3) {
+    alert("You win User! Your score: ${userScore}, Computer Score: ${computerScore}");
+  } else if (computerScore === 3) {
+    alert("You win User! Your score: ${userScore}, Computer Score: ${computerScore}");
+  }
+} 
+
+
+
