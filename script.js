@@ -20,30 +20,30 @@ let userScore = 0;
 let arr = ["Rock", "Paper", "Scissors"];
 
 function getUserChoice() {
-  let userChoice = prompt("Enter Rock, Paper, or Scissors.").toLowerCase();
-  return userChoice;
+  let userChoice = prompt("Enter Rock, Paper, or Scissors.");
+  return userChoice.toLowerCase();
 }
 
 function getComputerChoice() {
   let i = Math.floor(Math.random() * arr.length);
   let computerChoice = arr[i];
-  return computerChoice;
+  return computerChoice.toLowerCase();
 }
 
 function compareChoice(userChoice, computerChoice) {
-  if (userChoice === computerChoice) {
-    alert("It is a tie! Go Again.");
-  } else if (
-        (userChoice === "Rock" && computerChoice === "Scissors") ||
-        (userChoice === "Scissors" && computerChoice === "Paper") ||
-        (userChoice === "Paper" && computerChoice === "Rock")) {
+    if (userChoice === computerChoice) {
+      alert("It's a tie! Go Again.");
+    } else if (
+        (userChoice === "rock" && computerChoice === "scissors") ||
+        (userChoice === "scissors" && computerChoice === "paper") ||
+        (userChoice === "paper" && computerChoice === "rock")) { 
             alert(`You win! ${userChoice} beats ${computerChoice}.`);
             userScore++;
     } else {
         alert(`You lose! ${computerChoice} beats ${userChoice}`);
         computerScore++;
     }
-}
+  }
 
 function playGame() {
     let roundCounter = 0;
