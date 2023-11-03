@@ -47,19 +47,29 @@ function compareChoice(userChoice, computerChoice) {
 
 function playGame() {
     let roundCounter = 0;
-  
+
     while (userScore < 2 && computerScore < 2) {
         roundCounter++;
         let userChoice = getUserChoice();
         let computerChoice = getComputerChoice();
         compareChoice(userChoice, computerChoice);
-            alert(`Round #${roundCounter}, Current Score - User:${userScore}, Computer:${computerScore}`);
+        document.getElementById('resultsDisplay').textContent = `Round #${roundCounter}, Current Score - User:${userScore}, Computer:${computerScore}`;
             }
             if (userScore === 2) {
                 alert("Yeahhhh You won RoShamBo!");
             } else {
                 alert("You lost you loser! Computer Wins!");
             }
+            
         }
   
-  playGame();
+  /*playGame(); */
+
+const rockBtn = document.getElementById('rockBtn');
+const paperBtn = document.getElementById('paperBtn');
+const scissorsBtn = document.getElementById('scissorsBtn');
+
+rockBtn.addEventListener('click', playGame);
+paperBtn.addEventListener('click', playGame);
+scissorsBtn.addEventListener('click', playGame);
+
