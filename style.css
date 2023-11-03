@@ -1,0 +1,34 @@
+body {
+    background-color: #05445E;
+    font-family: 'Lucida Sans', Helvetica, Arial, sans-serif;
+    color: whitesmoke;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+button img {
+    background: none;
+    border-radius: 25px;
+}
+
+#imgContainer {
+    display: flex;
+    justify-content: space-evenly;
+  }
