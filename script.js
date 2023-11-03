@@ -73,3 +73,4 @@ rockBtn.addEventListener('click', playGame);
 paperBtn.addEventListener('click', playGame);
 scissorsBtn.addEventListener('click', playGame);
 
+
