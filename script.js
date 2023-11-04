@@ -14,16 +14,16 @@
 
 
 let computerScore = 0;
-
 let userScore = 0;
+let roundCounter = 0;
 
 let arr = ["rock", "paper", "scissors"];
 
-function getUserChoice(event) {
-  const buttonID = event.target.id;
+function getUserChoice() {
+  const buttonId = document.activeElement.id;
 
   let userChoice;
-  switch (buttonID) {
+  switch (buttonId) {
     case "rockBtn":
       userChoice = "rock";
       break;
@@ -41,7 +41,8 @@ function getUserChoice(event) {
 
 function getComputerChoice() {
   let i = Math.floor(Math.random() * arr.length);
-  return arr[i];
+  let computerChoice = arr[i];
+  return computerChoice.toLowerCase();
 }
 
 function compareChoice(userChoice, computerChoice) {
@@ -60,23 +61,21 @@ function compareChoice(userChoice, computerChoice) {
   }
 
 function playGame() {
-    let roundCounter = 0;
-
-    while (userScore < 2 && computerScore < 2) {
-        roundCounter++;
-        let userChoice = getUserChoice(event);
-        let computerChoice = getComputerChoice();
-        compareChoice(userChoice, computerChoice);
-        alert(`Round #${roundCounter}, Current Score - User:${userScore}, Computer:${computerScore}`);
-            }
-
-            if (userScore === 2) {
-                alert("Yeahhhh You won RoShamBo!");
-            } else {
-                alert("You lost! Computer Wins!");
-            }
-            
-        }
+  if (userScore < 2 && computerScore < 2) {
+    let userChoice = getUserChoice();
+    let computerChoice = getComputerChoice();
+    compareChoice(userChoice, computerChoice);
+    roundCounter++;
+    document.getElementById('resultsDisplay1').textContent = `Round #${roundCounter}, Current Score - User: ${userScore}, Computer: ${computerScore}`;
+    
+    
+      if (userScore === 2) {
+        document.getElementById('resultsDisplay2').textContent = `Yes! You won!`;
+      } else if (computerScore === 2) {
+        document.getElementById('resultsDisplay2').textContent = `Sorry! You Lost!`;
+      }
+    }
+  }
 
 const rockBtn = document.getElementById('rockBtn');
 const paperBtn = document.getElementById('paperBtn');
