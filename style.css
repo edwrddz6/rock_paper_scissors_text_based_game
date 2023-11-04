@@ -33,4 +33,11 @@ button img {
     display: flex;
     justify-content: space-evenly;
   }
-  
+
+#resultsDisplay1 {
+    text-align: center;
+}
+
+#resultsDisplay2 {
+    text-align: center;
+}
