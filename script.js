@@ -17,17 +17,31 @@ let computerScore = 0;
 
 let userScore = 0;
 
-let arr = ["Rock", "Paper", "Scissors"];
+let arr = ["rock", "paper", "scissors"];
 
-function getUserChoice() {
-  let userChoice = prompt("Enter Rock, Paper, or Scissors.");
-  return userChoice.toLowerCase();
+function getUserChoice(event) {
+  const buttonID = event.target.id;
+
+  let userChoice;
+  switch (buttonID) {
+    case "rockBtn":
+      userChoice = "rock";
+      break;
+    case "paperBtn":
+      userChoice = "paper";
+      break;
+    case "scissorsBtn":
+      userChoice = "scissors";
+      break;
+    default:
+      choice = "unknown choice";
+  }
+  return userChoice;
 }
 
 function getComputerChoice() {
   let i = Math.floor(Math.random() * arr.length);
-  let computerChoice = arr[i];
-  return computerChoice.toLowerCase();
+  return arr[i];
 }
 
 function compareChoice(userChoice, computerChoice) {
@@ -50,20 +64,19 @@ function playGame() {
 
     while (userScore < 2 && computerScore < 2) {
         roundCounter++;
-        let userChoice = getUserChoice();
+        let userChoice = getUserChoice(event);
         let computerChoice = getComputerChoice();
         compareChoice(userChoice, computerChoice);
-        document.getElementById('resultsDisplay').textContent = `Round #${roundCounter}, Current Score - User:${userScore}, Computer:${computerScore}`;
+        alert(`Round #${roundCounter}, Current Score - User:${userScore}, Computer:${computerScore}`);
             }
+
             if (userScore === 2) {
                 alert("Yeahhhh You won RoShamBo!");
             } else {
-                alert("You lost you loser! Computer Wins!");
+                alert("You lost! Computer Wins!");
             }
             
         }
-  
-  /*playGame(); */
 
 const rockBtn = document.getElementById('rockBtn');
 const paperBtn = document.getElementById('paperBtn');
@@ -72,5 +85,3 @@ const scissorsBtn = document.getElementById('scissorsBtn');
 rockBtn.addEventListener('click', playGame);
 paperBtn.addEventListener('click', playGame);
 scissorsBtn.addEventListener('click', playGame);
-
-
