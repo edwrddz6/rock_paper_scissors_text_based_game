@@ -17,7 +17,7 @@ let computerScore = 0;
 let userScore = 0;
 let roundCounter = 0;
 
-let arr = ["rock", "paper", "scissors"];
+let arr = ["Rock", "Paper", "Scissors"];
 
 function getUserChoice() {
   const buttonId = document.activeElement.id;
@@ -25,16 +25,16 @@ function getUserChoice() {
   let userChoice;
   switch (buttonId) {
     case "rockBtn":
-      userChoice = "rock";
+      userChoice = "Rock";
       break;
     case "paperBtn":
-      userChoice = "paper";
+      userChoice = "Paper";
       break;
     case "scissorsBtn":
-      userChoice = "scissors";
+      userChoice = "Scissors";
       break;
     default:
-      choice = "unknown choice";
+      choice = "Unknown";
   }
   return userChoice;
 }
@@ -42,16 +42,16 @@ function getUserChoice() {
 function getComputerChoice() {
   let i = Math.floor(Math.random() * arr.length);
   let computerChoice = arr[i];
-  return computerChoice.toLowerCase();
+  return computerChoice;
 }
 
 function compareChoice(userChoice, computerChoice) {
     if (userChoice === computerChoice) {
       alert("It's a tie! Go Again.");
     } else if (
-        (userChoice === "rock" && computerChoice === "scissors") ||
-        (userChoice === "scissors" && computerChoice === "paper") ||
-        (userChoice === "paper" && computerChoice === "rock")) { 
+        (userChoice === "Rock" && computerChoice === "Scissors") ||
+        (userChoice === "Scissors" && computerChoice === "Paper") ||
+        (userChoice === "Paper" && computerChoice === "Rock")) { 
             alert(`You win! ${userChoice} beats ${computerChoice}.`);
             userScore++;
     } else {
